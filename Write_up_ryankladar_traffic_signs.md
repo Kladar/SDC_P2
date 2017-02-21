@@ -49,19 +49,19 @@ I thought of normalization because we want to avoid high variance in the data, w
 In cells 7, 8, 9, and 10 is where the model architecture lives. It has a similar architecture to the LeNet lab, but I added some important features. First, I resized the depths to fit our 3 color images and 43 classes. The model consists of two convolutional layers of similar size to the LeNet lab, and three fully connected layers. There is also a flattening feature before the first fully connected layer. I also aded a drop out with keep probability of 0.5 after the first fully connected layer. Adding more seemed to decrease the ability of the model to perform, but adding one really helped it excel. Validation takes place in the 11th code cell.
 
 Architecture 
-*Input 32x32x3
-*Conv Layer 1 5x5x3 filter with stride 1 (valid padding) to 28x28x6
-*Relu Activation
-*Max Pooling 2x2 kernel, 1x1 stride to 14x14x6
-*Conv Layer 2 5x5x6 filter with stride 1 (valid padding) to 14x14x16
-*Relu Activation
-*Max Pooling 2x2 kernel, 2x2 stride and Flatten to 400 (vector)
-*Fully Connected Layer 400 to 120
-*Relu Activation
-*Dropout with keep probability of 0.5
-*Fully Connected Layer 120 to 84
-*Relu Activation
-*Fully Connected Layer 84 to 43 (our class number)
+* Input 32x32x3
+* Conv Layer 1 5x5x3 filter with stride 1 (valid padding) to 28x28x6
+* Relu Activation
+* Max Pooling 2x2 kernel, 1x1 stride to 14x14x6
+* Conv Layer 2 5x5x6 filter with stride 1 (valid padding) to 14x14x16
+* Relu Activation
+* Max Pooling 2x2 kernel, 2x2 stride and Flatten to 400 (vector)
+* Fully Connected Layer 400 to 120
+* Relu Activation
+* Dropout with keep probability of 0.5
+* Fully Connected Layer 120 to 84
+* Relu Activation
+* Fully Connected Layer 84 to 43 (our class number)
 
 
 
