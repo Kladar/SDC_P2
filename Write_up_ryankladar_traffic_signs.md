@@ -36,7 +36,9 @@ It shows a histogram of the number in each class and a random example image.
 
 I didn't do much preprocessing because it turned out to not be necessary, and we could be losing some information such as color, which is important in street sign classification (though the NN doesn't look at it here, we could be using it in the future). 
 
-I originally normalized the data but then removed it when debugging, forgot to add it back in, and it didn't seem to matter much, but it wouldn't be difficult to add back in. We then have to remember to do it to the new images as well but I'm as far behind as I am in this course so I'm going to move on.  do shuffle the data to avoid overfitting.
+I originally normalized the data but then removed it when debugging, forgot to add it back in, and it didn't seem to matter much, but it wouldn't be difficult to add back in. We then have to remember to do it to the new images as well but I'm as far behind as I am in this course so I'm going to move on. I do shuffle the data to avoid overfitting.
+
+I thought of normalization because we want to avoid high variance in the data, which makes it easy to overshoot our optima and hard to tune the learning rate to a value that works generally. 
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
@@ -45,6 +47,23 @@ I originally normalized the data but then removed it when debugging, forgot to a
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 In cells 7, 8, 9, and 10 is where the model architecture lives. It has a similar architecture to the LeNet lab, but I added some important features. First, I resized the depths to fit our 3 color images and 43 classes. The model consists of two convolutional layers of similar size to the LeNet lab, and three fully connected layers. There is also a flattening feature before the first fully connected layer. I also aded a drop out with keep probability of 0.5 after the first fully connected layer. Adding more seemed to decrease the ability of the model to perform, but adding one really helped it excel. Validation takes place in the 11th code cell.
+
+Architecture 
+Input 32x32x3
+Conv Layer 1 5x5x3 filter with stride 1 (valid padding) to 28x28x6
+Relu Activation
+Max Pooling 2x2 kernel, 1x1 stride to 14x14x6
+Conv Layer 2 5x5x6 filter with stride 1 (valid padding) to 14x14x16
+Relu Activation
+Max Pooling 2x2 kernel, 2x2 stride and Flatten to 400 (vector)
+Fully Connected Layer 400 to 120
+Relu Activation
+Dropout with keep probability of 0.5
+Fully Connected Layer 120 to 84
+Relu Activation
+Fully Connected Layer 84 to 43 (our class number)
+
+
 
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
