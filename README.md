@@ -1,12 +1,5 @@
-# CarND-LeNet-Lab
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+## This is a machine learning pipeline based on LeNet that can classify street signs in the data set at 99% accuracy.
 
-![LeNet-5 Architecture](lenet.png)
-Implement the LeNet-5 deep neural network model.
+It was trained on an AWS GPU in Oregon, and I watched it train with my laptop tethered to my LTE WIFI hotspot in rural central Wisconsin. The future is here and it's amazing. 
 
-### Dependencies
-This lab requires:
-
-* [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit)
-
-The lab enviroment can be created with CarND Term1 Starter Kit. Click [here](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) for the details.
+Machine Learning is still magic to me. 
